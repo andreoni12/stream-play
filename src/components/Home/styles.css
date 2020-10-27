@@ -1,0 +1,9 @@
+.platform-list {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.list-title {
+    padding-left: 25px;
+    color: #fff;
+}

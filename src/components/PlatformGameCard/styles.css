@@ -1,0 +1,30 @@
+.card {
+	height: 150px;
+	width: 250px;
+	border-radius: 10px;
+	margin: 0 10px;	
+	transition: all ease 0.3s;
+	transform: scale(0.9);
+}
+
+.game-title {
+	display: none;
+}
+
+.card:hover {
+	transform: scale(1);
+}
+
+.card:hover > div {
+	display: flex;
+	justify-content: center;
+	height: 150px;
+	align-items: center;
+	font-size: 16px;
+	font-weight: bold;
+	color: white;
+	border-radius: 10px;
+	background-color: rgba(0, 0, 0, 0.7);
+	cursor: pointer;
+	text-align: center;
+}
