@@ -3,6 +3,7 @@ import axios from 'axios';
 import { PlatformGame } from '../../models/platform-game';
 import PlatformGameCard from '../PlatformGameCard';
 import './styles.css';
+import { SearchGame } from '../SearchGame';
 
 export default class Home extends Component {
 
@@ -42,6 +43,8 @@ export default class Home extends Component {
     render() {
         return (
             <>
+                <SearchGame></SearchGame>
+                
                 <div className="this-week">
                     <h3 className="list-title">Releasing this week:</h3>
                     <div className="platform-list" style={{ width: this.state.weekGames.length * 270 }}>
