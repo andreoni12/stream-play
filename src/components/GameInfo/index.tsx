@@ -83,6 +83,10 @@ export default class GameInfo extends Component<{ id: string }> {
                             <p>{this.state.game.description_raw}</p>
                         </div>
                     </div>
+                    <div className="third-row">
+                        <h3>VIDEO</h3>
+                        {this.state.game?.clip?.clip && <video src={this.state.game.clip.clips.full} controls width="500"></video>}
+                    </div>
                 </div>
             </>
         )
