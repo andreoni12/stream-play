@@ -66,29 +66,30 @@ export default class Home extends Component {
         return (
             <>
                 <Header></Header>
-                <div className="featured-games">
-                    <div className="left-game">
-                        <FeaturedGame game={this.state.featuredLeft} />
+                {!this.state.loading ? <>
+                    <div className="featured-games">
+                        <div className="left-game">
+                            <FeaturedGame game={this.state.featuredLeft} />
+                        </div>
+                        <div className="right-game">
+                            <FeaturedGame game={this.state.featuredRight} />
+                        </div>
                     </div>
-                    <div className="right-game">
-                        <FeaturedGame game={this.state.featuredRight} />
-                    </div>
-                </div>
 
-                <div className="this-week">
-                    <h4 className="list-title">RELEASING THIS WEEK</h4>
-                    {!this.state.loading ?
+                    <div className="this-week">
+                        <h4 className="list-title">RELEASING THIS WEEK</h4>
                         <div className="platform-list">
                             {this.state.weekGames != null && this.state.weekGames.map((game, key) => (<PlatformGameCard key={key} game={game} />))}
-                        </div> : <Loader />}
-                </div>
+                        </div>
+                    </div>
 
-                <div className="greatest">
-                    <h4 className="list-title">GREATEST</h4>
-                    {!this.state.loading ? <div className="platform-list">
-                        {this.state.greatestGames != null && this.state.greatestGames.map((game, key) => (<PlatformGameCard key={key} game={game} />))}
-                    </div> : <Loader />}
-                </div>
+                    <div className="greatest">
+                        <h4 className="list-title">GREATEST</h4>
+                        <div className="platform-list">
+                            {this.state.greatestGames != null && this.state.greatestGames.map((game, key) => (<PlatformGameCard key={key} game={game} />))}
+                        </div>
+                    </div>
+                </> : <Loader />}
             </>
         )
     }
