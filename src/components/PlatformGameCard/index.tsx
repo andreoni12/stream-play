@@ -1,20 +1,23 @@
 import { Component } from "react";
-import { PlatformGame } from "../../models/platform-game";
-
 import React from 'react';
 import './styles.css';
+import { Game } from "../../models/game";
+import { Link } from "react-router-dom";
 
-export default class PlatformGameCard extends Component<{ game: PlatformGame }> {
+export default class PlatformGameCard extends Component<{ game: Game }> {
 
     render() {
         return (
-            <div className="card" style={{
-                backgroundImage: `url(${this.props.game?.background_image})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-            }}>
-                <div className="game-title">{this.props.game.name}</div>
-            </div>
+            <Link to={`/games/${this.props.game?.id}`}>
+                <div className="card" style={{
+                    backgroundImage: `url(${this.props.game?.background_image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                }}>
+                    <div className="game-title">{this.props.game.name}</div>
+                </div>
+            </Link>
+
         )
     }
 }

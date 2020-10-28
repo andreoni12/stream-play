@@ -13,7 +13,7 @@ export class Header extends Component {
         return (
             <header>
                 <div className="website-logo">
-                    <Link to="/">
+                    <Link to="/home">
                         <img height="60" src={logo} alt="logo" />
                     </Link>
                 </div>

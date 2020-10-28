@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { PlatformGame } from '../../models/platform-game';
 import PlatformGameCard from '../PlatformGameCard';
 import './styles.css';
 import { Header } from '../Header';
@@ -10,8 +9,8 @@ import FeaturedGame from '../FeaturedGame';
 
 export default class Home extends Component {
     state = {
-        weekGames: Array<PlatformGame>(),
-        greatestGames: Array<PlatformGame>(),
+        weekGames: Array<Game>(),
+        greatestGames: Array<Game>(),
         loading: false,
         featuredLeft: {} as Game,
         featuredRight: {} as Game,

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
+import GameInfo from './components/GameInfo';
 import Home from './components/Home';
 
 
@@ -9,9 +10,15 @@ export default class App extends Component {
     return (
       <div>
         <Switch>
-          <Route path="/">
+          <Route exact path="/">
+            <Redirect to="/home" />
+          </Route>
+          <Route path="/home">
             <Home />
           </Route>
+          <Route path="/games/:id" render={({ match }) => (
+            <GameInfo id={match.params.id} />
+          )} />
         </Switch>
       </div>
     )

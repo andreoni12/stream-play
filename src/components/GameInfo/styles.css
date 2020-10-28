@@ -1,0 +1,33 @@
+.game-info-container {
+    height: 100vh;
+}
+
+.title {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+    background-color: black;
+}
+
+.title div {
+    padding: 100px;
+    position: relative;
+    z-index: 2;
+    color: white;
+    font-size: 50px;
+}
+
+.title img {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    opacity: 0.6;
+}
+
+.first-row {
+    color: white;
+    padding: 0 30px;
+}

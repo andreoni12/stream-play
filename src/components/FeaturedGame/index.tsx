@@ -11,7 +11,6 @@ export default class FeaturedGame extends React.Component<{ game: Game }> {
                 backgroundPosition: 'center',
             }}>
                 <h3>{this.props.game?.name}</h3>
-                {this.props.game.parent_platforms != null && this.props.game.parent_platforms.map(platform => (<h3 key={platform.id}>{platform.name}</h3>))}
             </div>
         )
     }
