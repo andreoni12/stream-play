@@ -1,0 +1,32 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    padding: 10px;
+    background-color: black;
+    height: 60px;
+    color: #eaeaea;
+}
+
+.website-logo {
+    margin-right: auto;
+    padding-left: 13px;
+}
+
+.profile {
+    padding-right: 13px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.profile-info {
+    display: flex;
+    padding-right: 25px;
+}
+
+.profile-info > svg {
+    align-self: center;
+    padding-right: 25px;
+}
