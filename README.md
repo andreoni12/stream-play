@@ -18,8 +18,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 #Screenshots
 <p align="center">
-  <img src="src/assets/screenshots/1.png" width="350" title="stream-play">
+  <img src="src/assets/screenshots/1.PNG" width="350" title="stream-play">
 </p>
 <p align="center">
-  <img src="src/assets/screenshots/2.png" width="350" title="stream-play">
+  <img src="src/assets/screenshots/2.PNG" width="350" title="stream-play">
 </p>
