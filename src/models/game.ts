@@ -1,4 +1,5 @@
 import { Clip } from "./clip";
+import { Genre } from "./genre";
 import { ParentPlatform } from "./parent-platform";
 
 export type Game = {
@@ -6,7 +7,10 @@ export type Game = {
     name: string;
     background_image: string;
     background_image_additional: string;
-    parent_platforms: Array<ParentPlatform>;
+    parent_platforms: ParentPlatform[];
     clip: Clip;
+    metacritic: number;
+    released: string;
+    genres: Genre[];
     description_raw: string;
 }

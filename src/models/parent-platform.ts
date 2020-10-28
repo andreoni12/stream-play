@@ -1,5 +1,7 @@
 export type ParentPlatform = {
-    id: number;
-    name: string;
-    slug: string;
+    platform: {
+        id: number;
+        name: string;
+        slug: string;
+    }
 }
