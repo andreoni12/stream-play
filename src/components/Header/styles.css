@@ -30,3 +30,7 @@ header {
     align-self: center;
     padding-right: 25px;
 }
+
+#profile-img {
+    border-radius: 30px;
+}

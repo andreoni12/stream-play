@@ -1,0 +1,14 @@
+.featured-card {
+    height: 40vh;
+    border-radius: 10px;
+    width: 70vh;
+    opacity: 0.7;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+h3 {
+    color: white;
+    font-weight: 600;
+}

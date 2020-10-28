@@ -7,3 +7,15 @@
     padding-left: 25px;
     color: #fff;
 }
+
+.featured-games {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+.left-game {
+    padding-right: 20px;
+}

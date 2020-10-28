@@ -6,6 +6,7 @@ import './styles.css';
 import { Header } from '../Header';
 import Loader from '../Loader';
 import { Game } from '../../models/game'
+import FeaturedGame from '../FeaturedGame';
 
 export default class Home extends Component {
     state = {
@@ -13,6 +14,7 @@ export default class Home extends Component {
         greatestGames: Array<PlatformGame>(),
         loading: false,
         featuredLeft: {} as Game,
+        featuredRight: {} as Game,
     }
 
     componentDidMount() {
@@ -22,7 +24,7 @@ export default class Home extends Component {
 
     async thisWeekGames() {
         let data = {};
-        await axios.get(`https://rawg.io/api/games/lists/recent-games?discover=true&ordering=-added&page_size=20`).then(
+        await axios.get(`https://rawg.io/api/games/lists/recent-games?discover=true&ordering=-added&page_size=8`).then(
             response => {
                 data = response.data.results
             });
@@ -31,24 +33,18 @@ export default class Home extends Component {
 
     async greatestGames() {
         let data = {};
-        await axios.get(`https://rawg.io/api/games/lists/greatest?discover=true&ordering=-added&page_size=20`).then(
+        await axios.get(`https://rawg.io/api/games/lists/greatest?discover=true&ordering=-added&page_size=8`).then(
             response => {
                 data = response.data.results
             });
         return data;
     }
 
-    randomNumber(min: number, max: number): number {  
-        let number =  Math.random() * (max - min) + min; 
-        return Math.floor(number);
-    } 
-
-    async featuredGames() {
+    async featuredGames(position: number) {
         let data = {};
-        let random = this.randomNumber(1, 460595);
-        await axios.get(`https://api.rawg.io/api/games/${random}?key=bce091fd6d224303aa8e22a86acc77c1`).then(
+        await axios.get(`https://rawg.io/api/games/lists/main?discover=true&ordering=-relevance&page_size=2&key=bce091fd6d224303aa8e22a86acc77c1`).then(
             response => {
-                data = response.data;
+                data = response.data.results[position];
             });
         return data;
     }
@@ -56,8 +52,15 @@ export default class Home extends Component {
     async retrieveGames() {
         const weekGames = await this.thisWeekGames();
         const greatest = await this.greatestGames();
-        const featured = await this.featuredGames();
-        this.setState({ weekGames: weekGames, greatestGames: greatest, featuredLeft: featured, loading: false });
+        const featuredLeft = await this.featuredGames(0);
+        const featuredRight = await this.featuredGames(1);
+        this.setState({
+            weekGames: weekGames,
+            greatestGames: greatest,
+            featuredLeft: featuredLeft,
+            featuredRight: featuredRight,
+            loading: false
+        });
     }
 
     render() {
@@ -66,23 +69,26 @@ export default class Home extends Component {
                 <Header></Header>
                 <div className="featured-games">
                     <div className="left-game">
-                        
+                        <FeaturedGame game={this.state.featuredLeft} />
+                    </div>
+                    <div className="right-game">
+                        <FeaturedGame game={this.state.featuredRight} />
                     </div>
                 </div>
 
                 <div className="this-week">
                     <h4 className="list-title">RELEASING THIS WEEK</h4>
                     {!this.state.loading ?
-                        <div className="platform-list" style={{ width: this.state.weekGames.length * 270 }}>
-                            {this.state.weekGames != null && this.state.weekGames.map((game, key) => (<PlatformGameCard key={key} game={game}></PlatformGameCard>))}
-                        </div> : <Loader></Loader>}
+                        <div className="platform-list">
+                            {this.state.weekGames != null && this.state.weekGames.map((game, key) => (<PlatformGameCard key={key} game={game} />))}
+                        </div> : <Loader />}
                 </div>
 
                 <div className="greatest">
                     <h4 className="list-title">GREATEST</h4>
-                    {!this.state.loading ? <div className="platform-list" style={{ width: this.state.greatestGames.length * 270 }}>
-                        {this.state.greatestGames != null && this.state.greatestGames.map((game, key) => (<PlatformGameCard key={key} game={game}></PlatformGameCard>))}
-                    </div> : <Loader></Loader>}
+                    {!this.state.loading ? <div className="platform-list">
+                        {this.state.greatestGames != null && this.state.greatestGames.map((game, key) => (<PlatformGameCard key={key} game={game} />))}
+                    </div> : <Loader />}
                 </div>
             </>
         )
