@@ -17,10 +17,10 @@ In the project directory, you can run:
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 # Screenshots
-<div align="left">
-  <img src="src/assets/screenshots/1.PNG" width="350" title="stream-play">
-</div>
 
-<div align="right">
+  <img src="src/assets/screenshots/1.PNG" width="350" title="stream-play">
+
+
+
   <img src="src/assets/screenshots/2.PNG" width="350" title="stream-play">
-</div>
+
