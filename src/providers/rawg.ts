@@ -1,6 +1,7 @@
 import axios from 'axios';
+require('dotenv').config();
 
-const API_KEY = 'bce091fd6d224303aa8e22a86acc77c1';
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 export default {
     thisWeekGames: async function () {
