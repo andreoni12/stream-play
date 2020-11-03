@@ -2,7 +2,6 @@
 	height: 150px;
 	width: 250px;
 	border-radius: 10px;
-	margin: 0 10px;	
 	transition: all ease 0.3s;
 	transform: scale(0.9);
 }

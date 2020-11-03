@@ -36,6 +36,7 @@
 
 .first-row {
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .third-row {

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Game } from "../../models/game";
 import { Header } from "../Header";
-import axios from 'axios';
 import './styles.css';
 import { ParentPlatform } from "../../models/parent-platform";
 import playstation from "../../assets/playstation.svg";
@@ -9,6 +8,8 @@ import xbox from "../../assets/xbox.svg";
 import pc from "../../assets/microsoft.svg";
 import { Genre } from "../../models/genre";
 import Loader from "../Loader";
+import rawg from '../../providers/rawg';
+
 
 export default class GameInfo extends Component<{ id: string }> {
 
@@ -17,17 +18,8 @@ export default class GameInfo extends Component<{ id: string }> {
         loading: false,
     }
 
-    async findGame() {
-        let data = {};
-        await axios.get(`https://rawg.io/api/games/${this.props.id}?key=bce091fd6d224303aa8e22a86acc77c1`).then(
-            response => {
-                data = response.data;
-            });
-        return data;
-    }
-
     async buildGameObject() {
-        const game = await this.findGame();
+        const game = await rawg.retrieveGame(this.props.id);
         this.setState({ game: game, loading: false });
     }
 
@@ -78,7 +70,7 @@ export default class GameInfo extends Component<{ id: string }> {
                             </div>
                             <div className="metacritic">
                                 <h3>METACRITIC</h3>
-                                {this.state.game?.metacritic}
+                                {this.state.game?.metacritic ? this.state.game?.metacritic : '-'}
                             </div>
                         </div>
                         <div className="second-row">
