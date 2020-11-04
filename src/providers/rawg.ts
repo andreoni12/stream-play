@@ -3,7 +3,7 @@ require('dotenv').config();
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
-export default {
+const Rawg = {
     thisWeekGames: async function () {
         try {
             const response = await axios.get(`https://rawg.io/api/games/lists/recent-games?discover=true&ordering=-added&page_size=8`);
@@ -36,3 +36,5 @@ export default {
         return response.data;
     },
 }
+
+export default Rawg;

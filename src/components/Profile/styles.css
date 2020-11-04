@@ -1,0 +1,56 @@
+.profile-container {
+	height: 92vh;
+	color: white;
+	padding-top: 30px;
+}
+.profile-title,
+.profile-data,
+.profile-plan {
+	width: 50%;
+	margin: 0 auto;
+}
+
+.profile-title {
+	color: white;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	display: flex;
+	width: 50%;
+}
+
+.profile-title h1 {
+	align-self: center;
+}
+
+.profile-title img {
+	border-radius: 80px;
+}
+
+.profile-data, .profile-plan {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.profile-plan {
+    justify-content: space-evenly;
+}
+
+.change-plan {
+    justify-content: center;
+    align-self: center;
+}
+
+.change-plan button {
+    padding: 12px;
+    width: 150%;
+    color: white;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.change-plan button:focus {
+    outline: none;
+}

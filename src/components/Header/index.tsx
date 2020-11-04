@@ -24,7 +24,9 @@ export class Header extends Component {
                         <NotificationsActiveIcon></NotificationsActiveIcon>
                         <h4>Joel Miller</h4>
                     </div>
-                    <img id="profile-img" height="60" src={profile} alt="profile" />
+                    <Link to="/profile">
+                        <img id="profile-img" height="60" src={profile} alt="profile" />
+                    </Link>
                 </div>
             </header>
         )
